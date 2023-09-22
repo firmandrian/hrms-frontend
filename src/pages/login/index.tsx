@@ -256,7 +256,9 @@ const LoginPage = () => {
               </Typography>
             </Box>
             <Box sx={{ mb: 6 }}>
-              <TypographyStyled variant='h5'>{`Welcome to ${themeConfig.templateName} - ${process.env.NEXT_PUBLIC_APP_ENV || '--'}! 👋🏻`}</TypographyStyled>
+              <TypographyStyled variant='h5'>{`Welcome to ${themeConfig.templateName} - ${
+                process.env.NEXT_PUBLIC_APP_ENV || '--'
+              }! 👋🏻`}</TypographyStyled>
               <Typography variant='body2'>Please sign-in to your account and start the adventure</Typography>
             </Box>
             <Alert icon={false} sx={{ py: 3, mb: 6, ...bgColors.primaryLight, '& .MuiAlert-message': { p: 0 } }}>

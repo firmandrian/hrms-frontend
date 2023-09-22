@@ -50,7 +50,7 @@ type ThemeConfig = {
 const themeConfig: ThemeConfig = {
   // ** Layout Configs
   templateName: 'Inovasi Solusi' /* App Name */,
-  layout: 'vertical' /* vertical | horizontal */,
+  layout: 'horizontal' /* vertical | horizontal */,
   mode: 'light' as Mode /* light | dark | semi-dark /*! Note: semi-dark value will only work for Vertical Layout */,
   direction: 'ltr' /* ltr | rtl */,
   skin: 'default' /* default | bordered */,
@@ -70,7 +70,7 @@ const themeConfig: ThemeConfig = {
   collapsedNavigationSize: 68 /* Number in px(Pixels) /*! Note: This is for Vertical navigation menu only */,
   afterVerticalNavMenuContentPosition: 'fixed' /* fixed | static */,
   beforeVerticalNavMenuContentPosition: 'fixed' /* fixed | static */,
-  horizontalMenuToggle: 'hover' /* click | hover /*! Note: This is for Horizontal navigation menu only */,
+  horizontalMenuToggle: 'click' /* click | hover /*! Note: This is for Horizontal navigation menu only */,
   horizontalMenuAnimation: true /* true | false */,
 
   // ** AppBar Configs

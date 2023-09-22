@@ -66,8 +66,9 @@ const initialSettings: Settings = {
   navCollapsed: themeConfig.navCollapsed,
   contentWidth: themeConfig.contentWidth,
   toastPosition: themeConfig.toastPosition,
-  verticalNavToggleType: themeConfig.verticalNavToggleType,
-  appBar: themeConfig.layout === 'horizontal' && themeConfig.appBar === 'hidden' ? 'fixed' : themeConfig.appBar
+  verticalNavToggleType: themeConfig.verticalNavToggleType
+  //mengatur posisi navbar menjadi fixed
+  // appBar: themeConfig.layout === 'horizontal' && themeConfig.appBar === 'hidden' ? 'fixed' : themeConfig.appBar
 }
 
 const staticSettings = {
