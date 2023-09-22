@@ -1,0 +1,58 @@
+version: '3'
+services:
+  # Build Image & run
+  development:
+    container_name: nextjs-template-development
+    image: nextjs-template-development
+    # restart: always
+    build:
+      # context: .
+      dockerfile: ./dockerfile/Dockerfile-dev
+    ports:
+      - 10000:10000
+
+  staging:
+    container_name: nextjs-template-staging
+    image: nextjs-template-staging
+    # restart: always
+    build:
+      # context: .
+      dockerfile: ./dockerfile/Dockerfile-staging
+    ports:
+      - 10000:10000
+
+  production:
+    container_name: nextjs-template-production
+    image: nextjs-template-production
+    # restart: always
+    build:
+      # context: .
+      dockerfile: ./dockerfile/Dockerfile-production
+    ports:
+      - 10000:10000
+  # # Release Production
+  # upregol-bpf-lab:
+  #   image: nexus01.ra.com:8084/buildregolbpflab:${VERSION}
+  #   restart: always
+  #   ports:
+  #     - '4005:80'
+  # upregol-ewf-lab:
+  #   image: nexus01.ra.com:8084/buildregolewflab:${VERSION}
+  #   restart: always
+  #   ports:
+  #     - '4001:80'
+  # upregol-kpf-lab:
+  #   image: nexus01.ra.com:8084/buildregolkpflab:${VERSION}
+  #   restart: always
+  #   ports:
+  #     - '4002:80'
+  # upregol-rfb-lab:
+  #   image: nexus01.ra.com:8084/buildregolrfblab:${VERSION}
+  #   restart: always
+  #   ports:
+  #     - '4003:80'
+  # upregol-sgb-lab:
+  #   image: nexus01.ra.com:8084/buildregolsgblab:${VERSION}
+  #   restart: always
+  #   ports:
+  #     - '4004:80'
