@@ -22,7 +22,8 @@ const Navigation = (props: Props) => {
       className='menu-content'
       sx={{
         display: 'flex',
-        flexWrap: 'wrap',
+        // flexWrap: 'nowrap',
+        // flexWrap: 'wrap',
         alignItems: 'center',
         '& > *': {
           '&:not(:last-child)': { mr: 2 },

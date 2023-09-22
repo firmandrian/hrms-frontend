@@ -122,10 +122,11 @@ const HorizontalLayout = (props: LayoutProps) => {
               ...(navHidden ? {} : { borderBottom: theme => `1px solid ${theme.palette.divider}` })
             }}
           >
+            {/* fungsi untuk menentukan navbar (inovasi solusi) */}
             <Toolbar
               className='navbar-content-container'
               sx={{
-                mx: 'auto',
+                // mx: 'auto',
                 ...(contentWidth === 'boxed' && { '@media (min-width:1440px)': { maxWidth: 1440 } }),
                 minHeight: theme => `${(theme.mixins.toolbar.minHeight as number) - 1}px !important`
               }}
@@ -147,7 +148,7 @@ const HorizontalLayout = (props: LayoutProps) => {
               <Toolbar
                 className='horizontal-nav-content-container'
                 sx={{
-                  mx: 'auto',
+                  // mx: 'auto',
                   ...(contentWidth === 'boxed' && { '@media (min-width:1440px)': { maxWidth: 1440 } }),
                   minHeight: theme =>
                     `${(theme.mixins.toolbar.minHeight as number) - (skin === 'bordered' ? 1 : 0)}px !important`
