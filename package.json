@@ -1,7 +1,7 @@
 {
   "name": "next-js-master",
   "version": "1.0.0",
-  "author": "Fikri Dzakir",
+  "author": "Firman Andrian",
   "private": true,
   "scripts": {
     "dev:development": "NODE_ENV=development next dev -p 5001",
