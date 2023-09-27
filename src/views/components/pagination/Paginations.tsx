@@ -1,11 +1,14 @@
 import * as React from 'react'
+
+//komponen MUI
 import Pagination from '@mui/material/Pagination'
 import Grid from '@mui/material/Grid'
-import Button from '@mui/material/Button'
 import Fab from '@mui/material/Fab'
+import Button from '@mui/material/Button'
 
 export default function Paginations() {
   return (
+    // grid untuk seluruh komponen pagination
     <Grid
       container
       spacing={2}
@@ -14,6 +17,7 @@ export default function Paginations() {
       marginLeft={'-20px'}
       marginBottom={'15px'}
     >
+      {/* grid untuk pagination first  */}
       <Grid>
         {/* <Button
           variant='outlined'
@@ -37,6 +41,7 @@ export default function Paginations() {
         </Fab>
       </Grid>
       <Grid>
+        {/* komponen pagination dari MUI */}
         <Pagination
           count={2}
           // color='primary'
@@ -50,6 +55,8 @@ export default function Paginations() {
           }}
         />
       </Grid>
+
+      {/* grid untuk komponen pagination last  */}
       <Grid>
         {/* <Button
           variant='outlined'

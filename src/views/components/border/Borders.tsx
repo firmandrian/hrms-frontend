@@ -1,18 +1,36 @@
 import * as React from 'react'
+
+//komponen MUI
 import CssBaseline from '@mui/material/CssBaseline'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
+
+//import file
 import TableReusable from 'src/views/components/table/TableReusable'
 import Select from '../select/Select'
 import Paginations from '../pagination/Paginations'
-import ButtonAdd from '../button/ButtonAdd'
 import Form from '../form/Form'
-import { BsGrid3X3GapFill } from 'react-icons/bs'
+import Modals from '../modal/Modals'
+import BordersBox from './BordersBox'
+import FormDatePicker from '../form/FormDatePicker'
 
+// tipe data yang dikirim dari props borders
 interface Data {
   statusText: string
 }
-export default function Borders(props: Data) {
+
+//menggabungkan props borders statusText kedalam props borderprops untuk menampilkan data tabel
+interface BordersProps extends Data {
+  columns: string[]
+  data: any[]
+  showDatePicker?: boolean
+  showPagination?: boolean
+  showModals?: boolean
+  showSelect?: boolean
+  showForm?: boolean
+  showBordersBox?: boolean
+}
+export default function Borders(props: BordersProps) {
   return (
     <React.Fragment>
       <CssBaseline />
@@ -28,36 +46,20 @@ export default function Borders(props: Data) {
         }}
       >
         {/* Box di dalam Box */}
-        <Box
-          sx={{
-            bgcolor: '#248AAF', // Warna latar belakang box dalam
-            height: '50px' // Ukuran tinggi box dalam
-          }}
-        >
-          <div
-            style={{
-              padding: '13px',
-              color: '#FFFFFF',
-              fontFamily: 'Lato,"Helvetica Neue",Arial,sans-serif',
-              fontSize: '14px',
-              fontWeight: 'bold'
-            }}
-          >
-            <BsGrid3X3GapFill style={{ marginRight: '10px', marginBottom: '-1px' }} />
-            {/* panggil props untuk status text borders dengan upercase */}
-            {props.statusText.toLocaleUpperCase()}
-          </div>
-        </Box>
+        {props.showBordersBox && <BordersBox statusText={props.statusText} columns={props.columns} data={props.data} />}
+
+        {/* memanggil datepicker di menu tertentu saja  */}
+        {props.showDatePicker && <FormDatePicker />}
         {/* Memanggil komponen Button save dan delete */}
-        <ButtonAdd />
+        {props.showModals && <Modals />}
         {/* Memanggil komponen Form */}
-        <Form />
+        {props.showForm && <Form />}
         {/* memanggil tabel kedalam borders */}
-        <TableReusable />
+        <TableReusable columns={props.columns} data={props.data} />
         {/* memanggil select kedalam borders */}
-        <Select />
+        {props.showSelect && <Select />}
         {/* memanggil pagination kedalam borders */}
-        <Paginations />
+        {props.showPagination && <Paginations />}
       </Box>
       {/* </Container> */}
     </React.Fragment>
