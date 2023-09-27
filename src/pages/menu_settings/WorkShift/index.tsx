@@ -1,12 +1,10 @@
 import React from 'react'
 import Borders from 'src/views/components/border/Borders'
 
-function Autograph() {
+export default function WorkShift() {
   return (
     <>
-      <Borders statusText='autograph' />
+      <Borders statusText='work shifts' />
     </>
   )
 }
-
-export default Autograph

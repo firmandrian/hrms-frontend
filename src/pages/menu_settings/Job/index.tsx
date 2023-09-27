@@ -1,12 +1,11 @@
 import React from 'react'
 import Borders from 'src/views/components/border/Borders'
 
-function Autograph() {
+function Job() {
   return (
     <>
-      <Borders statusText='autograph' />
+      <Borders statusText='job titles' />
     </>
   )
 }
-
-export default Autograph
+export default Job

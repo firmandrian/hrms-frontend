@@ -1,12 +1,12 @@
 import React from 'react'
 import Borders from 'src/views/components/border/Borders'
 
-function Autograph() {
+function Termination() {
   return (
     <>
-      <Borders statusText='autograph' />
+      <Borders statusText='Termination reasons' />
     </>
   )
 }
 
-export default Autograph
+export default Termination

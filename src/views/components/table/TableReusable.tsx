@@ -17,7 +17,6 @@ import IconButton from '@mui/material/IconButton'
 import Tooltip from '@mui/material/Tooltip'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Switch from '@mui/material/Switch'
-import Paginations from '../pagination/Paginations'
 // import DeleteIcon from '@mui/icons-material/Delete';
 // import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils'
@@ -301,7 +300,7 @@ export default function EnhancedTable() {
   )
 
   return (
-    <Box sx={{ width: '96%', mx: 'auto', marginTop: '7px' }}>
+    <Box sx={{ mx: 'auto', marginTop: '30px', marginX: '9px' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
         {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
         <TableContainer>
@@ -366,7 +365,6 @@ export default function EnhancedTable() {
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
         /> */}
-        <Paginations></Paginations>
       </Paper>
       {/* <FormControlLabel /> */}
     </Box>

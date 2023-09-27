@@ -1,43 +1,76 @@
 import * as React from 'react'
 import Pagination from '@mui/material/Pagination'
-import Stack from '@mui/material/Stack'
-import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
+import Button from '@mui/material/Button'
 import Fab from '@mui/material/Fab'
-import { useState } from 'react'
 
 export default function Paginations() {
-  const [color, setColor] = useState(false)
-
-  const handleFirstPageClick = () => {
-    //fungsi ini untuk mengatur halaman menjadi halaman pertama
-  }
-
-  const handleLastPageClick = () => {
-    //fungsi ini untuk mengatur halaman menjadi halaman terakhir
-  }
-
   return (
-    <Stack spacing={2} direction='row' alignItems='center'>
-      <Box sx={{ '& > :not(style)': { m: 1 }, marginLeft: '69rem' }}>
-        <Fab variant='extended' size='small' style={{ fontSize: '12px' }}>
-          {/* <NavigationIcon sx={{ mr: 1 }} /> */}
+    <Grid
+      container
+      spacing={2}
+      justifyContent={'flex-end'}
+      marginTop={'10px'}
+      marginLeft={'-20px'}
+      marginBottom={'15px'}
+    >
+      <Grid>
+        {/* <Button
+          variant='outlined'
+          size='small'
+          color='primary'
+          style={{ height: '50px', textTransform: 'none', borderRadius: '50%' }}
+        >
+          First
+        </Button> */}
+        <Fab
+          variant='extended'
+          style={{
+            height: '30px',
+            textTransform: 'none',
+            width: '30px',
+            fontSize: '12px',
+            fontFamily: 'Lato,"Helvetica Neue",Arial,sans-serif'
+          }}
+        >
           First
         </Fab>
-      </Box>
-
-      <Pagination
-        count={2}
-        color='primary'
-        style={{
-          marginLeft: 'auto' // Mengatur pagination ke sebelah kanan
-        }}
-      />
-      <Box sx={{ '& > :not(style)': { m: 1 }, marginLeft: '50rem' }}>
-        <Fab variant='extended' size='small' style={{ fontSize: '12px' }}>
-          {/* <NavigationIcon sx={{ mr: 1 }} /> */}
+      </Grid>
+      <Grid>
+        <Pagination
+          count={2}
+          // color='primary'
+          sx={{
+            '& .MuiPaginationItem-page.Mui-selected': {
+              backgroundColor: '#248AAF' // Warna latar belakang item halaman yang aktif
+            },
+            '& .MuiPaginationItem-page:hover': {
+              backgroundColor: '#248AAF' // Warna latar belakang item halaman saat dihover
+            }
+          }}
+        />
+      </Grid>
+      <Grid>
+        {/* <Button
+          variant='outlined'
+          size='small'
+          style={{ fontSize: '12px', height: '50px', textTransform: 'none', borderRadius: '50%' }}
+        >
+          Last
+        </Button> */}
+        <Fab
+          variant='extended'
+          style={{
+            height: '30px',
+            textTransform: 'none',
+            width: '30px',
+            fontSize: '12px',
+            fontFamily: 'Lato,"Helvetica Neue",Arial,sans-serif'
+          }}
+        >
           Last
         </Fab>
-      </Box>
-    </Stack>
+      </Grid>
+    </Grid>
   )
 }

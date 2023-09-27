@@ -1,12 +1,12 @@
 import React from 'react'
 import Borders from 'src/views/components/border/Borders'
 
-function Autograph() {
+function Education() {
   return (
     <>
-      <Borders statusText='autograph' />
+      <Borders statusText='Education' />
     </>
   )
 }
 
-export default Autograph
+export default Education

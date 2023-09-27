@@ -73,12 +73,60 @@ const navigation = (): HorizontalNavItemsType => [
     icon: 'mdi:email-outline',
     children: [
       {
-        title: 'EmployeeStatus',
+        title: 'Employee Status',
         path: '/menu_settings/EmployeeStatus'
       },
       {
         title: 'Autograph',
         path: '/menu_settings/Autograph'
+      },
+      {
+        title: 'Job Title',
+        path: '/menu_settings/Job'
+      },
+      {
+        title: 'Work Shift',
+        path: '/menu_settings/WorkShift'
+      },
+      {
+        title: 'Department',
+        path: '/menu_settings/Department'
+      },
+      {
+        title: 'Education',
+        path: '/menu_settings/Education'
+      },
+      {
+        title: 'Language',
+        path: '/menu_settings/Language'
+      },
+      {
+        title: 'Skill',
+        path: '/menu_settings/Skill'
+      },
+      {
+        title: 'Nationalities',
+        path: '/menu_settings/National'
+      },
+      {
+        title: 'Immigration Issuer',
+        path: '/menu_settings/Immigration'
+      },
+      {
+        title: 'Termination Reasons',
+        path: '/menu_settings/Termination'
+      },
+      {
+        title: 'Cut-Off Period',
+        path: '/menu_settings/CutOff'
+      },
+      {
+        title: 'Holiday Setup',
+        path: '/menu_settings/Holiday_2'
+      },
+      {
+        title: 'Batch',
+        path: '/menu_settings/Batch'
       }
     ]
   },
