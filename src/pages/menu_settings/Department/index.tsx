@@ -9,7 +9,7 @@ const data = [
 export default function Department() {
   return (
     <>
-      <Borders statusText='department' columns={columns} data={data} />
+      <Borders statusText='department' columns={columns} data={data} showBordersBox={true} />
     </>
   )
 }
