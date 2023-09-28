@@ -6,7 +6,7 @@ const data = [{ Name: 'Cupcake' }, { Name: 'Donut' }]
 function Immigration() {
   return (
     <>
-      <Borders statusText='immigration issuer' columns={columns} data={data} />
+      <Borders statusText='immigration issuer' columns={columns} data={data} showBordersBox={true}/>
     </>
   )
 }

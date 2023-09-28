@@ -6,7 +6,7 @@ const data = [{ Name: 'Cupcake' }, { Name: 'Donut' }]
 function Language() {
   return (
     <>
-      <Borders statusText='language' columns={columns} data={data} />
+      <Borders statusText='language' columns={columns} data={data} showBordersBox={true}/>
     </>
   )
 }

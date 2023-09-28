@@ -9,7 +9,7 @@ const data = [
 export default function Autograph() {
   return (
     <>
-      <Borders statusText='autograph' columns={columns} data={data} />
+      <Borders statusText='autograph' columns={columns} data={data} showBordersBox={true}/>
     </>
   )
 }

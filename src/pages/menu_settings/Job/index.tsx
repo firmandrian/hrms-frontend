@@ -13,7 +13,7 @@ const data = [
 function Job() {
   return (
     <>
-      <Borders statusText='job titles' columns={columns} data={data} />
+      <Borders statusText='job titles' columns={columns} data={data} showBordersBox={true}/>
     </>
   )
 }

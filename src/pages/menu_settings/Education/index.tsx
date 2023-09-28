@@ -6,7 +6,7 @@ const data = [{ Level: 'Cupcake' }, { Level: 'Donut' }]
 function Education() {
   return (
     <>
-      <Borders statusText='Education' columns={columns} data={data} />
+      <Borders statusText='Education' columns={columns} data={data} showBordersBox={true}/>
     </>
   )
 }

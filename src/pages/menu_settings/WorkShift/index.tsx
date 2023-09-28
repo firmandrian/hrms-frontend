@@ -11,7 +11,7 @@ const data = [
 export default function WorkShift() {
   return (
     <>
-      <Borders statusText='work shifts' columns={columns} data={data} />
+      <Borders statusText='work shifts' columns={columns} data={data} showBordersBox={true}/>
     </>
   )
 }

@@ -16,7 +16,7 @@ const data = [
 function EmployeeStatus() {
   return (
     <>
-      <Borders statusText='employment status' columns={columns} data={data} />
+      <Borders statusText='employment status' columns={columns} data={data} showBordersBox={true}/>
     </>
   )
 }
