@@ -6,7 +6,16 @@ const data = [{ Nationality: 'Cupcake' }, { Nationality: 'Donut' }]
 function National() {
   return (
     <>
-      <Borders statusText='nationalities' columns={columns} data={data} />
+      <Borders
+        statusText='nationalities'
+        columns={columns}
+        data={data}
+        showBordersBox={true}
+        showModals={true}
+        showForm={true}
+        showPagination={true}
+        showSelect={true}
+      />
     </>
   )
 }

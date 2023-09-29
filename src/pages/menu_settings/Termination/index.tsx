@@ -6,7 +6,16 @@ const data = [{ Name: 'Cupcake' }, { Name: 'Donut' }]
 function Termination() {
   return (
     <>
-      <Borders statusText='termination reasons' columns={columns} data={data} />
+      <Borders
+        statusText='termination reasons'
+        columns={columns}
+        data={data}
+        showBordersBox={true}
+        showModals={true}
+        showForm={true}
+        showPagination={true}
+        showSelect={true}
+      />
     </>
   )
 }

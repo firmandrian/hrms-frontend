@@ -11,7 +11,7 @@ export default function FormDatePicker() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer components={['DatePicker', 'DateTimePicker', 'TimePicker', 'DateRangePicker']}>
-        <div style={{ width: '210px', marginLeft: '10px' }}>
+        <div style={{ width: 'auto', marginLeft: '10px', fontSize: '14px' }}>
           <DemoItem>
             <div style={{ display: 'flex' }}>
               <span style={{ marginRight: '10px', marginTop: '15px' }}>From</span>
@@ -21,7 +21,7 @@ export default function FormDatePicker() {
           <div style={{ marginTop: '10px' }}>
             <DemoItem>
               <div style={{ display: 'flex' }}>
-                <span style={{ marginRight: '30px', marginTop: '15px' }}>To</span>
+                <span style={{ marginRight: '28px', marginTop: '15px' }}>To</span>
                 <DatePicker defaultValue={tomorrow} views={['year', 'month', 'day']} />
               </div>
             </DemoItem>
@@ -31,3 +31,34 @@ export default function FormDatePicker() {
     </LocalizationProvider>
   )
 }
+
+// import * as React from 'react'
+// import dayjs from 'dayjs'
+// import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo'
+// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+// import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+
+// export interface FormDate {
+//   label: string
+//   style?: React.CSSProperties
+// }
+
+// const tomorrow = dayjs().add(1, 'day')
+
+// export default function FormDatePicker(props: FormDate) {
+//   return (
+//     <LocalizationProvider dateAdapter={AdapterDayjs}>
+//       <DemoContainer components={['DatePicker', 'DateTimePicker', 'TimePicker', 'DateRangePicker']}>
+//         <div style={{ width: '310px', marginLeft: '10px' }}>
+//           <DemoItem>
+//             <div style={{ display: 'flex' }}>
+//               <span style={{ marginTop: '15px', marginRight: 'auto', fontSize: '14px' }}>{props.label}</span>
+//               <DatePicker defaultValue={tomorrow} views={['year', 'month', 'day']} />
+//             </div>
+//           </DemoItem>
+//         </div>
+//       </DemoContainer>
+//     </LocalizationProvider>
+//   )
+// }

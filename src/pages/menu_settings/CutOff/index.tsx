@@ -1,16 +1,23 @@
 import React from 'react'
 import Borders from 'src/views/components/border/Borders'
+import FormDatePickerProps from 'src/views/components/form/FormDatePickerProps'
 
-const columns = ['Name', 'Description']
+const columns = ['Payroll Period', 'Attendance Cut-off', 'Pay Out Date']
 const data = [
-  { Name: 'Cupcake', Description: 305 },
-  { Name: 'Donut', Description: 452 }
+  {
+    'Payroll Period': 'Cupcake',
+    'Attendance Cut-off': <FormDatePickerProps />,
+    'Pay Out Date': <FormDatePickerProps />
+  },
+  { 'Payroll Period': 'Donut', 'Attendance Cut-off': <FormDatePickerProps />, 'Pay Out Date': <FormDatePickerProps /> }
 ]
 function CutOff() {
   return (
     <>
       <Borders
         statusText='cut-off period'
+        // showDatePickerFrom={true}
+        // showDatePickerTo={true}
         showDatePicker={true}
         columns={[]}
         data={[]}

@@ -9,7 +9,16 @@ const data = [
 function Skill() {
   return (
     <>
-      <Borders statusText='skill' columns={columns} data={data} />
+      <Borders
+        statusText='skill'
+        columns={columns}
+        data={data}
+        showBordersBox={true}
+        showModals={true}
+        showForm={true}
+        showPagination={true}
+        showSelect={true}
+      />
     </>
   )
 }

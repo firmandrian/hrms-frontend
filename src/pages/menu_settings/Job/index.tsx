@@ -1,19 +1,29 @@
 import React from 'react'
 import Borders from 'src/views/components/border/Borders'
 
-const columns = ['JobTitle', 'JobDescription']
+const columns = ['Job Title', 'Job Description']
 const data = [
-  { JobTitle: 'Administrative Assistant', JobDescription: '' },
-  { JobTitle: 'Administrative Supervisor', JobDescription: '' },
-  { JobTitle: 'Cleaner', JobDescription: '' },
-  { JobTitle: 'HR Officer', JobDescription: '' },
-  { JobTitle: 'HR Supervisor', JobDescription: '' }
+  { 'Job Title': 'Administrative Assistant', 'Job Description': '' },
+  { 'Job Title': 'Administrative Supervisor', 'Job Description': '' },
+  { 'Job Title': 'Cleaner', 'Job Description': '' },
+  { 'Job Title': 'HR Officer', 'Job Description': '' },
+  { 'Job Title': 'HR Supervisor', 'Job Description': '' }
 ]
 
 function Job() {
   return (
     <>
-      <Borders statusText='job titles' columns={columns} data={data} />
+      <Borders
+        statusText='job titles'
+        columns={columns}
+        data={data}
+        showBordersBox={true}
+        showModals={true}
+        showForm={true}
+        showPagination={true}
+        showSelect={true}
+        showDatePicker={false}
+      />
     </>
   )
 }

@@ -4,7 +4,7 @@
   "author": "Firman Andrian",
   "private": true,
   "scripts": {
-    "dev:development": "NODE_ENV=development next dev -p 5001",
+    "dev:development": "NODE_ENV=development next dev -p 5002",
     "dev:staging": "NODE_ENV=staging next dev -p 5001",
     "build:dev": "NODE_ENV=development next build",
     "build:staging": "NODE_ENV=staging next build",

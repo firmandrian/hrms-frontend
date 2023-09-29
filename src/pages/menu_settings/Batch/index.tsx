@@ -6,7 +6,16 @@ const data = [{ Name: 'Cupcake' }, { Name: 'Donut' }]
 function Batch() {
   return (
     <>
-      <Borders statusText='batch' columns={columns} data={data} />
+      <Borders
+        statusText='batch'
+        columns={columns}
+        data={data}
+        showBordersBox={true}
+        showModals={true}
+        showForm={true}
+        showPagination={true}
+        showSelect={true}
+      />
     </>
   )
 }

@@ -17,7 +17,9 @@ export default function BordersBox(props: BordersProps) {
       <Box
         sx={{
           bgcolor: '#248AAF', // Warna latar belakang box dalam
-          height: '50px' // Ukuran tinggi box dalam
+          height: '50px', // Ukuran tinggi box dalam
+          display: 'flex'
+          // justifyContent: 'center'
         }}
       >
         <div

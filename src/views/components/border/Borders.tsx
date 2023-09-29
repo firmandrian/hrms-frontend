@@ -13,6 +13,7 @@ import Form from '../form/Form'
 import Modals from '../modal/Modals'
 import BordersBox from './BordersBox'
 import FormDatePicker from '../form/FormDatePicker'
+// import FormDatePickerProps from '../form/FormDatePickerProps'
 
 // tipe data yang dikirim dari props borders
 interface Data {
@@ -29,6 +30,8 @@ interface BordersProps extends Data {
   showSelect?: boolean
   showForm?: boolean
   showBordersBox?: boolean
+  showDatePickerFrom?: boolean
+  showDatePickerTo?: boolean
 }
 export default function Borders(props: BordersProps) {
   return (
@@ -50,6 +53,7 @@ export default function Borders(props: BordersProps) {
 
         {/* memanggil datepicker di menu tertentu saja  */}
         {props.showDatePicker && <FormDatePicker />}
+        {/* <FormDatePickerProps showDatePickerFrom={props.showDatePickerFrom} showDatePickerTo={props.showDatePickerTo} /> */}
         {/* Memanggil komponen Button save dan delete */}
         {props.showModals && <Modals />}
         {/* Memanggil komponen Form */}

@@ -1,22 +1,30 @@
 import React from 'react'
 import Borders from 'src/views/components/border/Borders'
 
-const columns = ['Name', 'Position'] // Nama kolom
+const columns = ['Employment Status', 'Position']
 const data = [
-  { Name: 'Abdul', Position: 'Admin' },
-  { Name: 'Rian', Position: 'HR' },
-  { Name: 'Rian 2', Position: 'Admin' },
-  { Name: 'Adit', Position: 'Admin' },
-  { Name: 'Mz Ai', Position: 'Admin' },
-  { Name: 'Soleh', Position: 'Bapaknya adit' },
-  { Name: 'Halimah', Position: 'HR' }
-  // Tambahkan data lainnya sesuai kebutuhan
+  { 'Employment Status': 'Abdul', Position: 'Admin' },
+  { 'Employment Status': 'Rian', Position: 'HR' },
+  { 'Employment Status': 'Rian 2', Position: 'Admin' },
+  { 'Employment Status': 'Adit', Position: 'Admin' },
+  { 'Employment Status': 'Mz Ai', Position: 'Admin' },
+  { 'Employment Status': 'Soleh', Position: 'Bapaknya adit' },
+  { 'Employment Status': 'Halimah', Position: 'HR' }
 ]
 
 function EmployeeStatus() {
   return (
     <>
-      <Borders statusText='employment status' columns={columns} data={data} />
+      <Borders
+        statusText='employment status'
+        columns={columns}
+        data={data}
+        showBordersBox={true}
+        showModals={true}
+        showForm={true}
+        showPagination={true}
+        showSelect={true}
+      />
     </>
   )
 }

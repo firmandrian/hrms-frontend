@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper'
 
 interface CustomTableProps {
   columns: string[] // Array yang berisi nama kolom
-  data: any[] // Data untuk tabel, perhatikan sesuaikan tipe data
+  data: any[] // Data untuk tabel
 }
 
 function TableReusable({ columns, data }: CustomTableProps) {
