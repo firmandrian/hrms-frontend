@@ -5,8 +5,8 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 
-//import file buttonAdd
-import ButtonAdd from '../button/ButtonAdd'
+//import file ButtonModal
+import ButtonModal from '../button/ButtonModal'
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -27,8 +27,8 @@ export default function BasicModal() {
 
   return (
     <div>
-      {/* terima props dari buttonAdd? */}
-      <ButtonAdd onAddClick={handleOpen} />
+      {/* terima props dari ButtonModal? */}
+      <ButtonModal onAddClick={handleOpen} />
 
       {/* komponen modal MUI di sini */}
       <Modal

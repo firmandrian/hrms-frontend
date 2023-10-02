@@ -1,5 +1,9 @@
 import React from 'react'
+
+//import komponen MUI
 import Box from '@mui/material/Box'
+
+//import icon react-icons
 import { BsGrid3X3GapFill } from 'react-icons/bs'
 
 interface Data {

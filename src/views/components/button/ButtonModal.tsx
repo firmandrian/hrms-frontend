@@ -7,7 +7,7 @@ import Button from '@mui/material/Button'
 interface ButtonAddProps {
   onAddClick: () => void
 }
-export default function ButtonAdd({ onAddClick }: ButtonAddProps) {
+export default function ButtonModal({ onAddClick }: ButtonAddProps) {
   return (
     <Stack spacing={2} direction='row' marginX={'10px'} marginY={'10px'}>
       <Button
@@ -18,14 +18,21 @@ export default function ButtonAdd({ onAddClick }: ButtonAddProps) {
           border: '1px solid',
           fontSize: '14px',
           textTransform: 'none',
-          height: '40px'
+          width: '55px'
         }}
       >
         Add
       </Button>
       <Button
         variant='contained'
-        style={{ backgroundColor: '#E9422E', border: '1px solid', fontSize: '14px', textTransform: 'none' }}
+        style={{
+          backgroundColor: '#E9422E',
+          border: '1px solid',
+          fontSize: '14px',
+          textTransform: 'none',
+          width: '75px'
+          // height: '40px'
+        }}
       >
         Delete
       </Button>

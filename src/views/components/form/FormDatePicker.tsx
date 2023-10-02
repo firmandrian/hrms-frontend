@@ -1,64 +1,34 @@
-import * as React from 'react'
-import dayjs from 'dayjs'
-import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo'
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import React from 'react'
 
-const tomorrow = dayjs().add(1, 'day')
+export default function FormDatePicker({ useDefaultValue = true }) {
+  //ambil tanggal pada tahun ini
+  const currentYear = new Date().getFullYear()
 
-export default function FormDatePicker() {
+  //ambil tanggal 1 pada tahun ini
+  const defaultFromDate = `${currentYear}-01-01`
+
+  //ambil tanggal 31 pada tahun ini
+  const defaultToDate = `${currentYear}-12-31`
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DemoContainer components={['DatePicker', 'DateTimePicker', 'TimePicker', 'DateRangePicker']}>
-        <div style={{ width: 'auto', marginLeft: '10px', fontSize: '14px' }}>
-          <DemoItem>
-            <div style={{ display: 'flex' }}>
-              <span style={{ marginRight: '10px', marginTop: '15px' }}>From</span>
-              <DatePicker defaultValue={tomorrow} views={['year', 'month', 'day']} />
-            </div>
-          </DemoItem>
-          <div style={{ marginTop: '10px' }}>
-            <DemoItem>
-              <div style={{ display: 'flex' }}>
-                <span style={{ marginRight: '28px', marginTop: '15px' }}>To</span>
-                <DatePicker defaultValue={tomorrow} views={['year', 'month', 'day']} />
-              </div>
-            </DemoItem>
-          </div>
-        </div>
-      </DemoContainer>
-    </LocalizationProvider>
+    <>
+      <div>
+        <label style={{ marginRight: '50px', fontSize: '14px', marginLeft: '10px' }}>From</label>
+        <input
+          type='date'
+          style={{ marginRight: '10px', height: '30px', marginTop: '15px', width: '300px' }}
+          //default value menjadi tanggal 1
+          defaultValue={defaultFromDate}
+        />
+      </div>
+      <div>
+        <label style={{ marginRight: '68px', fontSize: '14px', marginLeft: '10px' }}>To</label>
+        <input
+          type='date'
+          style={{ marginRight: '10px', height: '30px', marginTop: '15px', width: '300px' }}
+          //default value menjadi tanggal 31
+          defaultValue={defaultToDate}
+        />
+      </div>
+    </>
   )
 }
-
-// import * as React from 'react'
-// import dayjs from 'dayjs'
-// import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo'
-// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-
-// export interface FormDate {
-//   label: string
-//   style?: React.CSSProperties
-// }
-
-// const tomorrow = dayjs().add(1, 'day')
-
-// export default function FormDatePicker(props: FormDate) {
-//   return (
-//     <LocalizationProvider dateAdapter={AdapterDayjs}>
-//       <DemoContainer components={['DatePicker', 'DateTimePicker', 'TimePicker', 'DateRangePicker']}>
-//         <div style={{ width: '310px', marginLeft: '10px' }}>
-//           <DemoItem>
-//             <div style={{ display: 'flex' }}>
-//               <span style={{ marginTop: '15px', marginRight: 'auto', fontSize: '14px' }}>{props.label}</span>
-//               <DatePicker defaultValue={tomorrow} views={['year', 'month', 'day']} />
-//             </div>
-//           </DemoItem>
-//         </div>
-//       </DemoContainer>
-//     </LocalizationProvider>
-//   )
-// }

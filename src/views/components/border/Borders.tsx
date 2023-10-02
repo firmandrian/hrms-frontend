@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 
 //komponen MUI
 import CssBaseline from '@mui/material/CssBaseline'
@@ -13,11 +13,12 @@ import Form from '../form/Form'
 import Modals from '../modal/Modals'
 import BordersBox from './BordersBox'
 import FormDatePicker from '../form/FormDatePicker'
-// import FormDatePickerProps from '../form/FormDatePickerProps'
+import ButtonSuccess from '../button/ButtonSuccess'
 
 // tipe data yang dikirim dari props borders
 interface Data {
   statusText: string
+  text?: string
 }
 
 //menggabungkan props borders statusText kedalam props borderprops untuk menampilkan data tabel
@@ -32,6 +33,8 @@ interface BordersProps extends Data {
   showBordersBox?: boolean
   showDatePickerFrom?: boolean
   showDatePickerTo?: boolean
+  showButtonSuccess?: boolean
+  onClick?: () => void
 }
 export default function Borders(props: BordersProps) {
   return (
@@ -53,15 +56,22 @@ export default function Borders(props: BordersProps) {
 
         {/* memanggil datepicker di menu tertentu saja  */}
         {props.showDatePicker && <FormDatePicker />}
-        {/* <FormDatePickerProps showDatePickerFrom={props.showDatePickerFrom} showDatePickerTo={props.showDatePickerTo} /> */}
-        {/* Memanggil komponen Button save dan delete */}
+
+        {/* memanggil button success */}
+        {props.showButtonSuccess && <ButtonSuccess text={props.text} onClick={props.onClick} />}
+
+        {/* Memanggil komponen Button save dan delete didalam komponen modals*/}
         {props.showModals && <Modals />}
+
         {/* Memanggil komponen Form */}
         {props.showForm && <Form />}
+
         {/* memanggil tabel kedalam borders */}
         <TableReusable columns={props.columns} data={props.data} />
+
         {/* memanggil select kedalam borders */}
         {props.showSelect && <Select />}
+
         {/* memanggil pagination kedalam borders */}
         {props.showPagination && <Paginations />}
       </Box>
