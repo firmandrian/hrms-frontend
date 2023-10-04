@@ -1,14 +1,19 @@
 import React from 'react'
 
-export default function FormDatePicker({ useDefaultValue = true }) {
+interface FormDatePickerProps {
+  defaultFromDate?: string
+  defaultToDate?: string
+  useDefaultValue?: boolean
+}
+export default function FormDatePicker(props: FormDatePickerProps) {
   //ambil tanggal pada tahun ini
   const currentYear = new Date().getFullYear()
 
   //ambil tanggal 1 pada tahun ini
-  const defaultFromDate = `${currentYear}-01-01`
+  const defaultFromDate = props.useDefaultValue ? props.defaultFromDate || `${currentYear}-01-01` : undefined
 
   //ambil tanggal 31 pada tahun ini
-  const defaultToDate = `${currentYear}-12-31`
+  const defaultToDate = props.useDefaultValue ? props.defaultToDate || `${currentYear}-12-31` : undefined
   return (
     <>
       <div>

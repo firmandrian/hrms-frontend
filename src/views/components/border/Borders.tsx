@@ -1,46 +1,26 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 //komponen MUI
-import CssBaseline from '@mui/material/CssBaseline'
 import Box from '@mui/material/Box'
-import Container from '@mui/material/Container'
 
 //import file
-import TableReusable from 'src/views/components/table/TableReusable'
-import Select from '../select/Select'
-import Paginations from '../pagination/Paginations'
-import Form from '../form/Form'
-import Modals from '../modal/Modals'
 import BordersBox from './BordersBox'
 import FormDatePicker from '../form/FormDatePicker'
-import ButtonSuccess from '../button/ButtonSuccess'
 
-// tipe data yang dikirim dari props borders
-interface Data {
-  statusText: string
-  text?: string
-}
-
-//menggabungkan props borders statusText kedalam props borderprops untuk menampilkan data tabel
-interface BordersProps extends Data {
+interface BordersProps {
   columns: string[]
   data: any[]
   showDatePicker?: boolean
-  showPagination?: boolean
-  showModals?: boolean
-  showSelect?: boolean
-  showForm?: boolean
   showBordersBox?: boolean
-  showDatePickerFrom?: boolean
-  showDatePickerTo?: boolean
-  showButtonSuccess?: boolean
-  onClick?: () => void
+  statusText: string
+  children: React.ReactNode
+  defaultFromDate?: string
+  defaultToDate?: string
+  useDefaultValue?: boolean
 }
 export default function Borders(props: BordersProps) {
   return (
     <React.Fragment>
-      <CssBaseline />
-      {/* <Container> */}
       <Box
         sx={{
           bgcolor: '#0000',
@@ -55,27 +35,18 @@ export default function Borders(props: BordersProps) {
         {props.showBordersBox && <BordersBox statusText={props.statusText} columns={props.columns} data={props.data} />}
 
         {/* memanggil datepicker di menu tertentu saja  */}
-        {props.showDatePicker && <FormDatePicker />}
+        {props.showDatePicker && (
+          <FormDatePicker
+            defaultFromDate={props.defaultFromDate}
+            defaultToDate={props.defaultToDate}
+            useDefaultValue={props.useDefaultValue}
+          />
+        )}
 
-        {/* memanggil button success */}
-        {props.showButtonSuccess && <ButtonSuccess text={props.text} onClick={props.onClick} />}
-
-        {/* Memanggil komponen Button save dan delete didalam komponen modals*/}
-        {props.showModals && <Modals />}
-
-        {/* Memanggil komponen Form */}
-        {props.showForm && <Form />}
-
-        {/* memanggil tabel kedalam borders */}
-        <TableReusable columns={props.columns} data={props.data} />
-
-        {/* memanggil select kedalam borders */}
-        {props.showSelect && <Select />}
-
-        {/* memanggil pagination kedalam borders */}
-        {props.showPagination && <Paginations />}
+        {/* props.children untuk memanfaatkan semua yang dimasukan ke dalam pembuka dan 
+        penutup pada component border sebagai parent nya */}
+        {props.children}
       </Box>
-      {/* </Container> */}
     </React.Fragment>
   )
 }

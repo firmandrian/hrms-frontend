@@ -4,9 +4,10 @@ import * as React from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
+import Stack from '@mui/material/Stack'
 
 //import file ButtonModal
-import ButtonModal from '../button/ButtonModal'
+import ButtonModal from '../button/ButtonComponent'
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -27,9 +28,30 @@ export default function BasicModal() {
 
   return (
     <div>
-      {/* terima props dari ButtonModal? */}
-      <ButtonModal onAddClick={handleOpen} />
-
+      <Stack spacing={2} direction='row' marginX={'10px'} marginY={'10px'}>
+        <ButtonModal
+          onAddClick={handleOpen}
+          backgroundColor='#3CBC8D'
+          text='Add'
+          width='55px'
+          fontSize='14px'
+          border='1px solid'
+          height='40px'
+          textTransform='none'
+          marginTop='0px'
+        />
+        <ButtonModal
+          onAddClick={handleOpen}
+          backgroundColor='#E9422E'
+          text='Delete'
+          width='70px'
+          fontSize='14px'
+          border='1px solid'
+          height='42px'
+          textTransform='none'
+          marginTop='10px'
+        />
+      </Stack>
       {/* komponen modal MUI di sini */}
       <Modal
         open={open}

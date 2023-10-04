@@ -6,12 +6,9 @@ import Box from '@mui/material/Box'
 //import icon react-icons
 import { BsGrid3X3GapFill } from 'react-icons/bs'
 
-interface Data {
-  statusText: string
-}
-
-interface BordersProps extends Data {
+interface BordersProps {
   columns: string[]
+  statusText: string
   data: any[]
 }
 export default function BordersBox(props: BordersProps) {
