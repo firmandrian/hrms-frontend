@@ -15,6 +15,8 @@ interface ButtonProps {
   textTransform: 'none'
   marginTop?: string
   marginLeft?: string
+  // jenis fungsi type button
+  buttonType?: 'button' | 'submit' | 'reset'
 }
 export default function ButtonComponent(props: ButtonProps) {
   return (

@@ -27,7 +27,7 @@ export default function Borders(props: BordersProps) {
           height: 'auto',
           width: 'auto',
           border: '1px solid #248AAF',
-          marginTop: '10px',
+          // marginTop: '10px',
           marginBottom: '15px'
         }}
       >
