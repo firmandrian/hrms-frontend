@@ -4,7 +4,6 @@ import * as React from 'react'
 import Pagination from '@mui/material/Pagination'
 import Grid from '@mui/material/Grid'
 import Fab from '@mui/material/Fab'
-import Button from '@mui/material/Button'
 
 export default function Paginations() {
   return (
@@ -19,14 +18,6 @@ export default function Paginations() {
     >
       {/* grid untuk pagination first  */}
       <Grid>
-        {/* <Button
-          variant='outlined'
-          size='small'
-          color='primary'
-          style={{ height: '50px', textTransform: 'none', borderRadius: '50%' }}
-        >
-          First
-        </Button> */}
         <Fab
           variant='extended'
           style={{
@@ -58,13 +49,6 @@ export default function Paginations() {
 
       {/* grid untuk komponen pagination last  */}
       <Grid>
-        {/* <Button
-          variant='outlined'
-          size='small'
-          style={{ fontSize: '12px', height: '50px', textTransform: 'none', borderRadius: '50%' }}
-        >
-          Last
-        </Button> */}
         <Fab
           variant='extended'
           style={{

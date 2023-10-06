@@ -1,33 +1,39 @@
-import * as React from 'react'
-import dayjs from 'dayjs'
-import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo'
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import React from 'react'
 
-const tomorrow = dayjs().add(1, 'day')
+interface FormDatePickerProps {
+  defaultFromDate?: string
+  defaultToDate?: string
+  useDefaultValue?: boolean
+}
+export default function FormDatePicker(props: FormDatePickerProps) {
+  //ambil tanggal pada tahun ini
+  const currentYear = new Date().getFullYear()
 
-export default function FormDatePicker() {
+  //ambil tanggal 1 pada tahun ini
+  const defaultFromDate = props.useDefaultValue ? props.defaultFromDate || `${currentYear}-01-01` : undefined
+
+  //ambil tanggal 31 pada tahun ini
+  const defaultToDate = props.useDefaultValue ? props.defaultToDate || `${currentYear}-12-31` : undefined
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DemoContainer components={['DatePicker', 'DateTimePicker', 'TimePicker', 'DateRangePicker']}>
-        <div style={{ width: '210px', marginLeft: '10px' }}>
-          <DemoItem>
-            <div style={{ display: 'flex' }}>
-              <span style={{ marginRight: '10px', marginTop: '15px' }}>From</span>
-              <DatePicker defaultValue={tomorrow} views={['year', 'month', 'day']} />
-            </div>
-          </DemoItem>
-          <div style={{ marginTop: '10px' }}>
-            <DemoItem>
-              <div style={{ display: 'flex' }}>
-                <span style={{ marginRight: '30px', marginTop: '15px' }}>To</span>
-                <DatePicker defaultValue={tomorrow} views={['year', 'month', 'day']} />
-              </div>
-            </DemoItem>
-          </div>
-        </div>
-      </DemoContainer>
-    </LocalizationProvider>
+    <>
+      <div>
+        <label style={{ marginRight: '50px', fontSize: '14px', marginLeft: '10px' }}>From</label>
+        <input
+          type='date'
+          style={{ marginRight: '10px', height: '30px', marginTop: '15px', width: '300px' }}
+          //default value menjadi tanggal 1
+          defaultValue={defaultFromDate}
+        />
+      </div>
+      <div>
+        <label style={{ marginRight: '68px', fontSize: '14px', marginLeft: '10px' }}>To</label>
+        <input
+          type='date'
+          style={{ marginRight: '10px', height: '30px', marginTop: '15px', width: '300px' }}
+          //default value menjadi tanggal 31
+          defaultValue={defaultToDate}
+        />
+      </div>
+    </>
   )
 }

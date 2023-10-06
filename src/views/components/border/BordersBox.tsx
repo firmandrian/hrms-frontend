@@ -1,13 +1,14 @@
 import React from 'react'
+
+//import komponen MUI
 import Box from '@mui/material/Box'
+
+//import icon react-icons
 import { BsGrid3X3GapFill } from 'react-icons/bs'
 
-interface Data {
-  statusText: string
-}
-
-interface BordersProps extends Data {
+interface BordersProps {
   columns: string[]
+  statusText: string
   data: any[]
 }
 export default function BordersBox(props: BordersProps) {
@@ -17,7 +18,9 @@ export default function BordersBox(props: BordersProps) {
       <Box
         sx={{
           bgcolor: '#248AAF', // Warna latar belakang box dalam
-          height: '50px' // Ukuran tinggi box dalam
+          height: '50px', // Ukuran tinggi box dalam
+          display: 'flex'
+          // justifyContent: 'center'
         }}
       >
         <div

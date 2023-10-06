@@ -1,24 +1,160 @@
 import React from 'react'
-import Borders from 'src/views/components/border/Borders'
 
-const columns = ['Name', 'Position'] // Nama kolom
+//import file
+import Borders from 'src/views/components/border/Borders'
+import TableReusable from 'src/views/components/table/TableReusable'
+import Form from 'src/views/components/form/Form'
+import Paginations from 'src/views/components/pagination/Paginations'
+import ButtonComponent from 'src/views/components/button/ButtonComponent'
+import Select from 'src/views/components/select/Select'
+
+//import komponen MUI
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
+import Modal from '@mui/material/Modal'
+
+//data dan kolom untuk tabel
+const columns = ['Employment Status', 'Position']
 const data = [
-  { Name: 'Abdul', Position: 'Admin' },
-  { Name: 'Rian', Position: 'HR' },
-  { Name: 'Rian 2', Position: 'Admin' },
-  { Name: 'Adit', Position: 'Admin' },
-  { Name: 'Mz Ai', Position: 'Admin' },
-  { Name: 'Soleh', Position: 'Bapaknya adit' },
-  { Name: 'Halimah', Position: 'HR' }
-  // Tambahkan data lainnya sesuai kebutuhan
+  { 'Employment Status': 'Abdul', Position: 'Admin' },
+  { 'Employment Status': 'Rian', Position: 'HR' },
+  { 'Employment Status': 'Rian 2', Position: 'Admin' },
+  { 'Employment Status': 'Adit', Position: 'Admin' },
+  { 'Employment Status': 'Mz Ai', Position: 'Admin' },
+  { 'Employment Status': 'Soleh', Position: 'Bapaknya adit' },
+  { 'Employment Status': 'Halimah', Position: 'HR' }
 ]
 
-function EmployeeStatus() {
+//styling modal
+const style = {
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 600,
+  bgcolor: 'background.paper',
+  boxShadow: 24,
+  p: 1
+}
+
+//styling border
+const commonStyles = {
+  bgcolor: 'background.paper',
+  m: 1,
+  borderColor: 'text.primary',
+  width: '5rem',
+  height: '5rem'
+}
+
+export default function EmployeeStatus() {
+  const [open, setOpen] = React.useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
   return (
     <>
-      <Borders statusText='employment status' columns={columns} data={data} showBordersBox={true}/>
+      <Box>
+        <Borders
+          columns={columns}
+          data={data}
+          statusText='employment status'
+          showBordersBox={true}
+          showDatePicker={false}
+        >
+          <Stack spacing={2} direction='row' marginX={'10px'} marginY={'10px'}>
+            <ButtonComponent
+              onAddClick={handleOpen}
+              backgroundColor='#3CBC8D'
+              text='Add'
+              width='50px'
+              fontSize='14px'
+              border='1px solid'
+              height='40px'
+              textTransform='none'
+              marginLeft='-10px'
+            />
+            <ButtonComponent
+              onAddClick={handleOpen}
+              backgroundColor='#E9422E'
+              text='Delete'
+              width='75px'
+              fontSize='14px'
+              border='1px solid'
+              height='40px'
+              textTransform='none'
+              marginTop='10px'
+              marginLeft='-10px'
+            />
+          </Stack>
+          <Form showParagrafRight={true} text='Showing 5/5 entries' marginLeft='10px' width='30%' marginTop='-2px' />
+          <TableReusable columns={columns} data={data} />
+          <Select />
+          <Paginations />
+        </Borders>
+      </Box>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby='modal-modal-title'
+        aria-describedby='modal-modal-description'
+      >
+        <Box sx={{ ...style, padding: 0 }}>
+          <Typography id='modal-modal-title' variant='h6' component='h2'>
+            <Borders
+              statusText='Add Employment Status'
+              columns={[]}
+              data={[]}
+              showBordersBox={true}
+              showDatePicker={false}
+              children={undefined}
+            />
+          </Typography>
+          <Typography id='modal-modal-description' sx={{ mt: 2 }}>
+            {/* kolom form pertama pada modal  */}
+            <Stack spacing={2} direction='row' marginX={'30px'} marginY={'10px'}>
+              <Form width='20rem' showParagrafLeft={true} text='Name' marginLeft='83px' showSpan={true} />
+            </Stack>
+            <p
+              style={{
+                marginLeft: '29px',
+                marginTop: '1rem',
+                fontSize: '14px',
+                marginRight: '32px'
+              }}
+            >
+              <span style={{ color: 'red' }}>*</span> Required Field
+            </p>
+            {/* borders di modal */}
+            <Box sx={{ ...commonStyles, borderBottom: 1, width: '57vh', marginTop: '-80px', marginX: '20px' }} />
+            {/* tombol di modal  */}
+            <Stack spacing={2} direction='row' marginX={'30px'} marginY={'10px'} justifyContent={'flex-end'}>
+              <ButtonComponent
+                onAddClick={handleOpen}
+                backgroundColor='#3CBC8D'
+                text='Save'
+                width='55px'
+                fontSize='14px'
+                border='1px solid'
+                height='40px'
+                textTransform='none'
+                marginLeft='-10px'
+              />
+              <ButtonComponent
+                onAddClick={handleClose}
+                backgroundColor='#E9422E'
+                text='Cancel'
+                width='75px'
+                fontSize='14px'
+                border='1px solid'
+                height='40px'
+                textTransform='none'
+                marginTop='10px'
+                marginLeft='-10px'
+              />
+            </Stack>
+          </Typography>
+        </Box>
+      </Modal>
     </>
   )
 }
-
-export default EmployeeStatus

@@ -1,4 +1,6 @@
 import React from 'react'
+
+////import komponen MUI
 import Box from '@mui/material/Box'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
@@ -10,10 +12,10 @@ import Paper from '@mui/material/Paper'
 
 interface CustomTableProps {
   columns: string[] // Array yang berisi nama kolom
-  data: any[] // Data untuk tabel, perhatikan sesuaikan tipe data
+  data: any[] // Data untuk tabel
 }
 
-function TableReusable({ columns, data }: CustomTableProps) {
+export default function TableReusable({ columns, data }: CustomTableProps) {
   return (
     <Box sx={{ mx: 'auto', marginTop: '30px', marginX: '9px' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
@@ -22,7 +24,9 @@ function TableReusable({ columns, data }: CustomTableProps) {
             <TableHead>
               <TableRow>
                 {columns.map(column => (
-                  <TableCell key={column}>{column}</TableCell>
+                  <TableCell key={column} style={{ textTransform: 'none', fontSize: '14px' }}>
+                    {column}
+                  </TableCell>
                 ))}
               </TableRow>
             </TableHead>
@@ -41,5 +45,3 @@ function TableReusable({ columns, data }: CustomTableProps) {
     </Box>
   )
 }
-
-export default TableReusable
