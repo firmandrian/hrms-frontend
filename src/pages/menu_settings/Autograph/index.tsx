@@ -1,19 +1,19 @@
 import React from 'react'
 
 //import file
+import Form from 'src/views/components/form/Form'
+import Select from 'src/views/components/select/Select'
 import Borders from 'src/views/components/border/Borders'
 import TableReusable from 'src/views/components/table/TableReusable'
-import Form from 'src/views/components/form/Form'
 import Paginations from 'src/views/components/pagination/Paginations'
 import ButtonComponent from 'src/views/components/button/ButtonComponent'
-import Select from 'src/views/components/select/Select'
 import InputFileUpload from 'src/views/components/button/InputFileUpload'
 
 //import komponen MUI
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
-import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
+import Typography from '@mui/material/Typography'
 
 //data dan kolom untuk tabel
 const columns = ['Name', 'Position']
@@ -75,7 +75,7 @@ export default function Autograph() {
               marginLeft='-10px'
             />
           </Stack>
-          <Form text='Showing 5/5 entries' marginLeft='10px' width='30%' marginTop='-2px' />
+          <Form showParagrafRight={true} text='Showing 5/5 entries' marginLeft='10px' width='30%' marginTop='-2px' />
           <TableReusable columns={columns} data={data} />
           <Select />
           <Paginations />
@@ -101,30 +101,28 @@ export default function Autograph() {
           <Typography id='modal-modal-description' sx={{ mt: 0 }}>
             {/* kolom form pertama pada modal  */}
             <Stack spacing={2} direction='row' marginX={'30px'} marginY={'10px'}>
-              <p style={{ marginLeft: '1px', marginTop: '5px', fontSize: '14px', marginRight: '65px' }}>
-                Name <span style={{ color: 'red' }}>*</span>
-              </p>
-              <Form width='30rem' />
+              <Form width='30rem' showParagrafLeft={true} text='Name' marginLeft='83px' showSpan={true} />
             </Stack>
 
             {/* kolom form kedua pada modal  */}
             <Stack spacing={2} direction='row' marginX={'30px'} marginY={'30px'}>
-              <p style={{ marginLeft: '1px', marginTop: '5px', fontSize: '14px', marginRight: '50px' }}>
-                Position <span style={{ color: 'red' }}>*</span>
-              </p>
-              <Form width='30rem' />
+              <Form width='30rem' showParagrafLeft={true} text='Position' marginLeft='70px' showSpan={true} />
             </Stack>
 
             {/* kolom form ketiga pada modal  */}
-            <Stack spacing={2} direction='row' marginX={'30px'} marginTop={'30px'}>
-              <p style={{ marginLeft: '1px', marginTop: '5px', fontSize: '14px', marginRight: '32px' }}>
-                Autograph <span style={{ color: 'red' }}>*</span>
-              </p>
-              <InputFileUpload />
-            </Stack>
-            <p style={{ marginLeft: '16vh', marginTop: '5px', fontSize: '14px', marginRight: '32px' }}>
-              Accepts up to 20MB
-            </p>
+            <InputFileUpload
+              showParagrafLeft={true}
+              text='Autograph'
+              showParagrafButtom={true}
+              TextButtom='Accepts up to 1MB'
+              width='7rem'
+              textTransform='none'
+              backgroundColor='#248AAF'
+              color='#FFFFFF'
+              height='37px'
+              fontSize='13px'
+              marginRight='75px'
+            />
             <p
               style={{
                 marginLeft: '29px',

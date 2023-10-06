@@ -68,7 +68,7 @@ export default function Department() {
               marginLeft='-10px'
             />
           </Stack>
-          <Form />
+          <Form text='Showing 5/5 entries' marginLeft='10px' width='30%' marginTop='-2px' />
           <TableReusable columns={columns} data={data} />
           <Select />
           <Paginations />

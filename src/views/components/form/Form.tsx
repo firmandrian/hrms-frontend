@@ -10,12 +10,22 @@ interface FormProps {
   width?: string
   marginLeft?: string
   marginTop?: string
+  showParagrafLeft?: boolean
+  showParagrafRight?: boolean
+  showSpan?: boolean
 }
 
 export default function Form(props: FormProps) {
   return (
     <>
       <Stack spacing={2} direction='row'>
+        {props.showParagrafLeft && (
+          <p style={{ marginLeft: '1px', marginTop: '5px', fontSize: '14px', marginRight: '26px' }}>
+            {props.text}
+            {props.showSpan && <span style={{ color: 'red' }}>*</span>}
+            {/* <span style={{ color: 'red' }}>*</span> */}
+          </p>
+        )}
         <TextField
           id='outlined-basic'
           variant='outlined'
@@ -28,7 +38,9 @@ export default function Form(props: FormProps) {
             marginTop: props.marginTop
           }}
         />
-        <p style={{ marginLeft: '10px', marginTop: '5px', fontSize: '14px' }}>{props.text}</p>
+        {props.showParagrafRight && (
+          <p style={{ marginLeft: '10px', marginTop: '5px', fontSize: '14px' }}>{props.text}</p>
+        )}
       </Stack>
     </>
   )

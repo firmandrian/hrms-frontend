@@ -32,7 +32,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 800,
+  width: 600,
   bgcolor: 'background.paper',
   boxShadow: 24,
   p: 1
@@ -86,7 +86,7 @@ export default function EmployeeStatus() {
               marginLeft='-10px'
             />
           </Stack>
-          <Form />
+          <Form showParagrafRight={true} text='Showing 5/5 entries' marginLeft='10px' width='30%' marginTop='-2px' />
           <TableReusable columns={columns} data={data} />
           <Select />
           <Paginations />
@@ -112,12 +112,46 @@ export default function EmployeeStatus() {
           <Typography id='modal-modal-description' sx={{ mt: 2 }}>
             {/* kolom form pertama pada modal  */}
             <Stack spacing={2} direction='row' marginX={'30px'} marginY={'10px'}>
-              <p style={{ marginLeft: '1px', marginTop: '5px', fontSize: '14px', marginRight: '50px' }}>
-                Name <span style={{ color: 'red' }}>*</span>
-              </p>
-              <Form width='30rem' />
+              <Form width='20rem' showParagrafLeft={true} text='Name' marginLeft='83px' showSpan={true} />
             </Stack>
-            <Box sx={{ ...commonStyles, borderBottom: 1, width: '80vh', marginTop: '-60px', marginX: '20px' }} />
+            <p
+              style={{
+                marginLeft: '29px',
+                marginTop: '1rem',
+                fontSize: '14px',
+                marginRight: '32px'
+              }}
+            >
+              <span style={{ color: 'red' }}>*</span> Required Field
+            </p>
+            {/* borders di modal */}
+            <Box sx={{ ...commonStyles, borderBottom: 1, width: '57vh', marginTop: '-80px', marginX: '20px' }} />
+            {/* tombol di modal  */}
+            <Stack spacing={2} direction='row' marginX={'30px'} marginY={'10px'} justifyContent={'flex-end'}>
+              <ButtonComponent
+                onAddClick={handleOpen}
+                backgroundColor='#3CBC8D'
+                text='Save'
+                width='55px'
+                fontSize='14px'
+                border='1px solid'
+                height='40px'
+                textTransform='none'
+                marginLeft='-10px'
+              />
+              <ButtonComponent
+                onAddClick={handleClose}
+                backgroundColor='#E9422E'
+                text='Cancel'
+                width='75px'
+                fontSize='14px'
+                border='1px solid'
+                height='40px'
+                textTransform='none'
+                marginTop='10px'
+                marginLeft='-10px'
+              />
+            </Stack>
           </Typography>
         </Box>
       </Modal>
