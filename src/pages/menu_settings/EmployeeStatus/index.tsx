@@ -32,7 +32,8 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 600,
+  maxWidth: '90%',
+  width: 'auto',
   bgcolor: 'background.paper',
   boxShadow: 24,
   p: 1
@@ -92,6 +93,8 @@ export default function EmployeeStatus() {
           <Paginations />
         </Borders>
       </Box>
+
+      {/* awal modal  */}
       <Modal
         open={open}
         onClose={handleClose}
@@ -111,9 +114,9 @@ export default function EmployeeStatus() {
           </Typography>
           <Typography id='modal-modal-description' sx={{ mt: 2 }}>
             {/* kolom form pertama pada modal  */}
-            <Stack spacing={2} direction='row' marginX={'30px'} marginY={'10px'}>
-              <Form width='20rem' showParagrafLeft={true} text='Name' marginLeft='83px' showSpan={true} />
-            </Stack>
+            <Box sx={{ marginLeft: '30px', marginBottom: '30px', marginRight: '50px' }}>
+              <Form width='400px' showParagrafLeft={true} text='Name' showSpan={true} marginLeft='64px' />
+            </Box>
             <p
               style={{
                 marginLeft: '29px',
@@ -125,7 +128,7 @@ export default function EmployeeStatus() {
               <span style={{ color: 'red' }}>*</span> Required Field
             </p>
             {/* borders di modal */}
-            <Box sx={{ ...commonStyles, borderBottom: 1, width: '57vh', marginTop: '-80px', marginX: '20px' }} />
+            <Box sx={{ ...commonStyles, borderBottom: 1, width: 'auto', marginTop: '-80px', marginX: '20px' }} />
             {/* tombol di modal  */}
             <Stack spacing={2} direction='row' marginX={'30px'} marginY={'10px'} justifyContent={'flex-end'}>
               <ButtonComponent
@@ -155,6 +158,7 @@ export default function EmployeeStatus() {
           </Typography>
         </Box>
       </Modal>
+      {/* akhir modal  */}
     </>
   )
 }

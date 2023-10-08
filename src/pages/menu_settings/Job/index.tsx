@@ -32,7 +32,8 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 800,
+  maxWidth: '90%',
+  width: 'auto',
   bgcolor: 'background.paper',
   boxShadow: 24,
   p: 1
@@ -85,6 +86,7 @@ export default function Job() {
           <Paginations />
         </Borders>
       </Box>
+      {/* awal modal  */}
       <Modal
         open={open}
         onClose={handleClose}
@@ -94,7 +96,7 @@ export default function Job() {
         <Box sx={{ ...style, padding: 0 }}>
           <Typography id='modal-modal-title' variant='h6' component='h2'>
             <Borders
-              statusText='Add Employment Status'
+              statusText='Add Job Title'
               columns={[]}
               data={[]}
               showBordersBox={true}
@@ -104,14 +106,19 @@ export default function Job() {
           </Typography>
           <Typography id='modal-modal-description' sx={{ mt: 2 }}>
             {/* kolom form pertama pada modal  */}
-            <Stack spacing={2} direction='row' marginX={'30px'} marginY={'10px'}>
-              <Form width='30rem' showParagrafLeft={true} text='Name' marginLeft='83px' showSpan={true} />
-            </Stack>
+            <Box sx={{ marginLeft: '30px', marginBottom: '30px', marginRight: '50px' }}>
+              <Form width='500px' showParagrafLeft={true} text='Name' showSpan={true} marginLeft='94px' />
+            </Box>
 
             {/* kolom form kedua pada modal  */}
-            <Stack spacing={2} direction='row' marginY={'30px'}>
-              <Textarea width='30rem' marginTop='10px' height='13vh' showParagrafLeft={true} text='Job Description' />
-            </Stack>
+            <Textarea
+              showParagrafLeft={true}
+              text='Text Description'
+              marginLeft='44px'
+              height='150px'
+              marginButtom='30px'
+              marginRight='50px'
+            />
 
             {/* kolom form ketiga pada modal  */}
             <InputFileUpload
@@ -125,7 +132,8 @@ export default function Job() {
               color='#FFFFFF'
               height='37px'
               fontSize='13px'
-              marginRight='30px'
+              marginRight='40px'
+              marginLeft='200px'
             />
 
             <p
@@ -139,7 +147,7 @@ export default function Job() {
               <span style={{ color: 'red' }}>*</span> Required Field
             </p>
             {/* borders di modal */}
-            <Box sx={{ ...commonStyles, borderBottom: 1, width: '80vh', marginTop: '-80px', marginX: '20px' }} />
+            <Box sx={{ ...commonStyles, borderBottom: 1, width: 'auto', marginTop: '-80px', marginX: '20px' }} />
 
             {/* tombol di modal  */}
             <Stack spacing={2} direction='row' marginX={'30px'} marginY={'10px'} justifyContent={'flex-end'}>
@@ -170,6 +178,7 @@ export default function Job() {
           </Typography>
         </Box>
       </Modal>
+      {/* akhir modal  */}
     </>
   )
 }

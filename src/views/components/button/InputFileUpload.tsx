@@ -47,7 +47,8 @@ export default function InputFileUpload(props: InputFileUploadProps) {
             backgroundColor: props.backgroundColor,
             color: props.color,
             height: props.height,
-            fontSize: props.fontSize
+            fontSize: props.fontSize,
+            marginRight: props.marginRight
           }}
         >
           Choose FiLe
@@ -55,7 +56,7 @@ export default function InputFileUpload(props: InputFileUploadProps) {
         </Button>
       </Stack>
       {props.showParagrafButtom && (
-        <p style={{ marginLeft: '20vh', marginTop: '5px', fontSize: '14px' }}> {props.TextButtom}</p>
+        <p style={{ marginLeft: props.marginLeft, marginTop: '5px', fontSize: '14px' }}> {props.TextButtom}</p>
       )}
     </>
   )
