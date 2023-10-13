@@ -2,8 +2,8 @@ import React from 'react'
 
 //import file
 import Form from 'src/views/components/form/Form'
-import Select from 'src/views/components/select/Select'
 import Borders from 'src/views/components/border/Borders'
+import SelectNative from 'src/views/components/select/SelectNative'
 import TableReusable from 'src/views/components/table/TableReusable'
 import Paginations from 'src/views/components/pagination/Paginations'
 import ButtonComponent from 'src/views/components/button/ButtonComponent'
@@ -28,7 +28,8 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 800,
+  maxWidth: '90%',
+  width: 'auto',
   bgcolor: 'background.paper',
   boxShadow: 24,
   p: 1
@@ -75,12 +76,20 @@ export default function Autograph() {
               marginLeft='-10px'
             />
           </Stack>
-          <Form showParagrafRight={true} text='Showing 5/5 entries' marginLeft='10px' width='30%' marginTop='-2px' />
+          <Form
+            showForm={true}
+            showParagrafRight={true}
+            text='Showing 5/5 entries'
+            marginLeft='10px'
+            width='30%'
+            marginTop='-2px'
+          />
           <TableReusable columns={columns} data={data} />
-          <Select />
+          <SelectNative />
           <Paginations />
         </Borders>
       </Box>
+      {/* awal modal */}
       <Modal
         open={open}
         onClose={handleClose}
@@ -100,28 +109,44 @@ export default function Autograph() {
           </Typography>
           <Typography id='modal-modal-description' sx={{ mt: 0 }}>
             {/* kolom form pertama pada modal  */}
-            <Stack spacing={2} direction='row' marginX={'30px'} marginY={'10px'}>
-              <Form width='30rem' showParagrafLeft={true} text='Name' marginLeft='83px' showSpan={true} />
-            </Stack>
+            <Box sx={{ marginLeft: '30px', marginBottom: '30px', marginRight: '50px' }}>
+              <Form
+                showForm={true}
+                width='500px'
+                showParagrafLeft={true}
+                text='Name'
+                showSpan={true}
+                marginLeft='64px'
+              />
+            </Box>
 
             {/* kolom form kedua pada modal  */}
-            <Stack spacing={2} direction='row' marginX={'30px'} marginY={'30px'}>
-              <Form width='30rem' showParagrafLeft={true} text='Position' marginLeft='70px' showSpan={true} />
-            </Stack>
+            <Box sx={{ marginLeft: '30px', marginBottom: '30px', marginRight: '50px' }}>
+              <Form
+                showForm={true}
+                width='500px'
+                showParagrafLeft={true}
+                text='Position'
+                marginLeft='50px'
+                showSpan={true}
+              />
+            </Box>
 
             {/* kolom form ketiga pada modal  */}
             <InputFileUpload
               showParagrafLeft={true}
               text='Autograph'
               showParagrafButtom={true}
-              TextButtom='Accepts up to 1MB'
+              TextButtom='Accepts up to 20MB'
               width='7rem'
               textTransform='none'
               backgroundColor='#248AAF'
               color='#FFFFFF'
               height='37px'
               fontSize='13px'
-              marginRight='75px'
+              marginRight='50px'
+              showSpan={true}
+              marginLeft='170px'
             />
             <p
               style={{
@@ -134,7 +159,7 @@ export default function Autograph() {
               <span style={{ color: 'red' }}>*</span> Required Field
             </p>
             {/* borders di modal */}
-            <Box sx={{ ...commonStyles, borderBottom: 1, width: '80vh', marginTop: '-80px', marginX: '20px' }} />
+            <Box sx={{ ...commonStyles, borderBottom: 1, width: 'auto', marginTop: '-80px', marginX: '20px' }} />
 
             {/* tombol di modal  */}
             <Stack spacing={2} direction='row' marginX={'30px'} marginY={'10px'} justifyContent={'flex-end'}>

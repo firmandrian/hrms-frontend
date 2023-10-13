@@ -1,69 +1,91 @@
 import React, { useState } from 'react'
 
-//import file
+// Import file
 import Borders from 'src/views/components/border/Borders'
+import SelectNative from 'src/views/components/select/SelectNative'
 import TableReusable from 'src/views/components/table/TableReusable'
 import Paginations from 'src/views/components/pagination/Paginations'
 import ButtonComponent from 'src/views/components/button/ButtonComponent'
-import Select from 'src/views/components/select/Select'
 
-//import komponen MUI
+// Import komponen MUI
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
-import Typography from '@mui/material/Typography'
-import Modal from '@mui/material/Modal'
-import FormDate from 'src/views/components/form/FormDate'
-
-//data tabel (sementara) yang dikirim
-const columns = ['Payroll Period', 'Attendance Cut-off', 'Pay Out Date']
-
-//data dan kolom untuk tabel
-const data = [
-  {
-    'Payroll Period': 'Cupcake',
-    'Attendance Cut-off': <FormDate />,
-    'Pay Out Date': <FormDate />
-  },
-  {
-    'Payroll Period': 'Donut',
-    'Attendance Cut-off': <FormDate />,
-    'Pay Out Date': <FormDate />
-  }
-]
-
-//styling modal
-const style = {
-  position: 'absolute' as 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4
-}
+import PickersBasic from 'src/views/components/form/pickers/PickersBasic'
 
 export default function CutOff() {
   const [open, setOpen] = React.useState(false)
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
-  //state untuk menampilkan data pada table dengan nilai default false
+  const [openSave, setOpenSave] = React.useState(false)
+
+  // State untuk menampilkan data pada tabel dengan nilai default false
   const [DataTable, setDataTable] = useState(false)
   const [showEditButton, setShowEditButton] = useState(false)
-  const [showGenereteExcel, setshowGenereteExcel] = useState(false)
+  const [showGenerateExcel, setShowGenerateExcel] = useState(false)
+  const [isEditing, setIsEditing] = useState(true)
+
+  // Data tabel (sementara) yang dikirim
+  const columns = ['Payroll Period', 'Attendance Cut-off', 'Pay Out Date']
+  // State untuk data dalam tabel
+  const [data, setData] = useState([
+    {
+      'Payroll Period': 'Cupcake',
+      'Attendance Cut-off': <PickersBasic ShowFromDate={true} width='200px' disabled={isEditing} />,
+      'Pay Out Date': <PickersBasic ShowFromDate={true} width='200px' disabled={isEditing} />
+    },
+    {
+      'Payroll Period': 'Donut',
+      'Attendance Cut-off': <PickersBasic ShowFromDate={true} width='200px' disabled={isEditing} />,
+      'Pay Out Date': <PickersBasic ShowFromDate={true} width='200px' disabled={isEditing} />
+    }
+  ])
 
   /**
    * Mengatur status tabel data menjadi true ketika tombol sukses diklik.
    */
   const handleSuccessClick = () => {
     setDataTable(true)
-    setshowGenereteExcel(true)
+    setShowGenerateExcel(true)
     setShowEditButton(true)
   }
 
+  const handleEditButton = () => {
+    setOpenSave(!openSave)
+    setShowEditButton(!showEditButton)
+    setShowGenerateExcel(!showGenerateExcel)
+    setIsEditing(false)
+
+    // Mengubah properti disabled dalam data sesuai dengan isEditing
+    const updatedData = data.map(item => {
+      return {
+        ...item,
+        'Attendance Cut-off': <PickersBasic ShowFromDate={true} width='200px' disabled={false} />,
+        'Pay Out Date': <PickersBasic ShowFromDate={true} width='200px' disabled={false} />
+      }
+    })
+
+    // Menyimpan data yang telah diperbarui
+    setData(updatedData)
+  }
+  const handleSaveButton = () => {
+    setOpenSave(!openSave)
+    setIsEditing(true)
+    setShowEditButton(true)
+    setShowGenerateExcel(true)
+
+    // Mengubah properti disabled dalam data kembali menjadi true
+    const updatedData = data.map(item => {
+      return {
+        ...item,
+        'Attendance Cut-off': <PickersBasic ShowFromDate={true} width='200px' disabled={true} />,
+        'Pay Out Date': <PickersBasic ShowFromDate={true} width='200px' disabled={true} />
+      }
+    })
+
+    // Menyimpan data yang telah diperbarui
+    setData(updatedData)
+  }
   return (
     <>
+      {/* borders pertama */}
       <Box>
         <Borders
           columns={columns}
@@ -73,33 +95,34 @@ export default function CutOff() {
           showDatePicker={true}
           useDefaultValue={true}
         >
+          <Box sx={{ marginTop: '15px' }}>
+            <PickersBasic
+              useDefaultValue={true}
+              ShowFromDate={true}
+              ShowToDate={true}
+              textFrom='From'
+              textTo='To'
+              marginLeft='10px'
+              width='300px'
+              marginRight='7px'
+              marginTop='25px'
+            />
+          </Box>
           <ButtonComponent
             onAddClick={handleSuccessClick}
             backgroundColor='#3CBC8D'
-            text='Add'
-            width='55px'
+            text='Search'
+            width='auto'
             fontSize='14px'
             border='1px solid'
             height='40px'
             textTransform='none'
+            marginTop='20px'
           />
         </Borders>
       </Box>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby='modal-modal-title'
-        aria-describedby='modal-modal-description'
-      >
-        <Box sx={style}>
-          <Typography id='modal-modal-title' variant='h6' component='h2'>
-            Text in a modal
-          </Typography>
-          <Typography id='modal-modal-description' sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
-      </Modal>
+      {/* akhir borders pertama */}
+
       {/* borders kedua */}
       <Box>
         <Borders
@@ -109,10 +132,22 @@ export default function CutOff() {
           showBordersBox={false}
           showDatePicker={false}
         >
+          {openSave && (
+            <ButtonComponent
+              onAddClick={handleSaveButton}
+              backgroundColor='#3CBC8D'
+              text='Save'
+              width='55px'
+              fontSize='14px'
+              border='1px solid'
+              height='40px'
+              textTransform='none'
+            />
+          )}
           <Stack spacing={1} direction='row'>
             {showEditButton && (
               <ButtonComponent
-                onAddClick={handleSuccessClick}
+                onAddClick={handleEditButton}
                 backgroundColor='#3CBC8D'
                 text='Edit'
                 width='55px'
@@ -122,7 +157,7 @@ export default function CutOff() {
                 textTransform='none'
               />
             )}
-            {showGenereteExcel && (
+            {showGenerateExcel && (
               <ButtonComponent
                 onAddClick={handleSuccessClick}
                 backgroundColor='#3CBC8D'
@@ -138,10 +173,11 @@ export default function CutOff() {
             )}
           </Stack>
           <TableReusable columns={columns} data={DataTable ? data : []} />
-          <Select />
+          <SelectNative />
           <Paginations />
         </Borders>
       </Box>
+      {/* akhir borders kedua */}
     </>
   )
 }

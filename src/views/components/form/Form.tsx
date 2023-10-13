@@ -13,6 +13,7 @@ interface FormProps {
   showParagrafLeft?: boolean
   showParagrafRight?: boolean
   showSpan?: boolean
+  showForm?: boolean
 }
 
 export default function Form(props: FormProps) {
@@ -23,21 +24,22 @@ export default function Form(props: FormProps) {
           <p style={{ marginLeft: '1px', marginTop: '5px', fontSize: '14px', marginRight: '26px' }}>
             {props.text}
             {props.showSpan && <span style={{ color: 'red' }}>*</span>}
-            {/* <span style={{ color: 'red' }}>*</span> */}
           </p>
         )}
-        <TextField
-          id='outlined-basic'
-          variant='outlined'
-          placeholder={props.placeholder}
-          size='small'
-          // sx={{ width: '30%', marginLeft: '10px' }}
-          style={{
-            marginLeft: props.marginLeft,
-            width: props.width,
-            marginTop: props.marginTop
-          }}
-        />
+        {props.showForm && (
+          <TextField
+            id='outlined-basic'
+            variant='outlined'
+            placeholder={props.placeholder}
+            size='small'
+            // sx={{ width: '30%', marginLeft: '10px' }}
+            style={{
+              marginLeft: props.marginLeft,
+              width: props.width,
+              marginTop: props.marginTop
+            }}
+          />
+        )}
         {props.showParagrafRight && (
           <p style={{ marginLeft: '10px', marginTop: '5px', fontSize: '14px' }}>{props.text}</p>
         )}

@@ -5,7 +5,7 @@ import Box from '@mui/material/Box'
 
 //import file
 import BordersBox from './BordersBox'
-import FormDatePicker from '../form/FormDatePicker'
+import FormDatePicker from '../form/pickers/FormDatePicker'
 
 interface BordersProps {
   columns: string[]
