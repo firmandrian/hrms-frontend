@@ -17,7 +17,7 @@ interface FormDatePickerProps {
   showSpan?: boolean
 }
 export default function FormDatePicker(props: FormDatePickerProps) {
-  //ambil tahun ini
+  //ambil tanggal pada tahun ini
   const currentYear = new Date().getFullYear()
 
   //ambil tanggal 1 pada tahun ini

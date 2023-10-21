@@ -4,7 +4,7 @@ import React from 'react'
 import Form from 'src/views/components/form/Form'
 import Borders from 'src/views/components/border/Borders'
 import SelectNative from 'src/views/components/select/SelectNative'
-import TableReusable from 'src/views/components/table/TableReusable'
+import TableDepartement from 'src/views/components/table-settings/Department'
 import Paginations from 'src/views/components/pagination/Paginations'
 import ButtonComponent from 'src/views/components/button/ButtonComponent'
 
@@ -51,119 +51,11 @@ export default function Department() {
     <>
       <Box>
         <Borders columns={columns} data={data} statusText='department' showBordersBox={true} showDatePicker={false}>
-          <Stack spacing={2} direction='row' marginX={'10px'} marginY={'10px'}>
-            <ButtonComponent
-              onAddClick={handleOpen}
-              backgroundColor='#3CBC8D'
-              text='Add'
-              width='55px'
-              fontSize='14px'
-              border='1px solid'
-              height='40px'
-              textTransform='none'
-              marginLeft='-10px'
-            />
-            <ButtonComponent
-              onAddClick={handleOpen}
-              backgroundColor='#E9422E'
-              text='Delete'
-              width='75px'
-              fontSize='14px'
-              border='1px solid'
-              height='40px'
-              textTransform='none'
-              marginTop='10px'
-              marginLeft='-10px'
-            />
-          </Stack>
-          <Form
-            showForm={true}
-            showParagrafRight={true}
-            text='Showing 5/5 entries'
-            marginLeft='10px'
-            width='30%'
-            marginTop='-2px'
-          />
-          <TableReusable columns={columns} data={data} />
+          <TableDepartement />
           <SelectNative />
           <Paginations />
         </Borders>
       </Box>
-
-      {/* komponen awal modal  */}
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby='modal-modal-title'
-        aria-describedby='modal-modal-description'
-      >
-        <Box sx={{ ...style, padding: 0 }}>
-          <Typography id='modal-modal-title' variant='h6' component='h2'>
-            <Borders
-              statusText='Add Department'
-              columns={[]}
-              data={[]}
-              showBordersBox={true}
-              showDatePicker={false}
-              children={undefined}
-            />
-          </Typography>
-          <Typography id='modal-modal-description' sx={{ mt: 2 }}>
-            {/* kolom form pertama pada modal  */}
-            <Box sx={{ marginLeft: '30px', marginBottom: '30px', marginRight: '50px' }}>
-              <Form
-                showForm={true}
-                width='400px'
-                showParagrafLeft={true}
-                text='Name'
-                showSpan={true}
-                marginLeft='64px'
-              />
-            </Box>
-            <p
-              style={{
-                marginLeft: '29px',
-                marginTop: '1rem',
-                fontSize: '14px',
-                marginRight: '32px'
-              }}
-            >
-              <span style={{ color: 'red' }}>*</span> Required Field
-            </p>
-
-            {/* borders di modal */}
-            <Box sx={{ ...commonStyles, borderBottom: 1, width: 'auto', marginTop: '-80px', marginX: '20px' }} />
-
-            {/* tombol di modal  */}
-            <Stack spacing={2} direction='row' marginX={'30px'} marginY={'10px'} justifyContent={'flex-end'}>
-              <ButtonComponent
-                onAddClick={handleOpen}
-                backgroundColor='#3CBC8D'
-                text='Save'
-                width='55px'
-                fontSize='14px'
-                border='1px solid'
-                height='40px'
-                textTransform='none'
-                marginLeft='-10px'
-              />
-              <ButtonComponent
-                onAddClick={handleClose}
-                backgroundColor='#E9422E'
-                text='Cancel'
-                width='75px'
-                fontSize='14px'
-                border='1px solid'
-                height='40px'
-                textTransform='none'
-                marginTop='10px'
-                marginLeft='-10px'
-              />
-            </Stack>
-          </Typography>
-        </Box>
-      </Modal>
-      {/* akhir modal  */}
     </>
   )
 }

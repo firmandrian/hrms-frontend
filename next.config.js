@@ -3,8 +3,6 @@ const path = require('path')
 
 /** @type {import('next').NextConfig} */
 
-
-
 // Remove this if you're not using Fullcalendar features
 const withTM = require('next-transpile-modules')([
   '@fullcalendar/common',
@@ -14,8 +12,7 @@ const withTM = require('next-transpile-modules')([
   '@fullcalendar/timegrid'
 ])
 
-
-const env = require('dotenv').config({ path: `./.env.${process.env.NODE_ENV}.local` });
+const env = require('dotenv').config({ path: `./.env.${process.env.NODE_ENV}.local` })
 
 console.log('Current Environment : ' + process.env.NODE_ENV)
 module.exports = withTM({

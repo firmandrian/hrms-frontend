@@ -14,6 +14,8 @@ interface TextareaProps {
   marginRight?: string
   showParagrafLeft?: boolean
   text?: string
+  value?: string
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
 export default function Textarea(props: TextareaProps) {
@@ -35,6 +37,10 @@ export default function Textarea(props: TextareaProps) {
         <StyledTextarea
           maxRows={4}
           aria-label='maximum height'
+          value={props.value}
+          onChange={props.onChange}
+          autoFocus={true}
+          // onFocus={e => e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length)}
           style={{
             marginLeft: props.marginLeft,
             width: props.width,

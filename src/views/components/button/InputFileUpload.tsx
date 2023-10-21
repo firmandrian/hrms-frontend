@@ -24,6 +24,7 @@ interface InputFileUploadProps {
   fontSize?: string
   TextButtom?: string
   marginRight?: string
+  textButton?: string
 }
 
 export default function InputFileUpload(props: InputFileUploadProps) {
@@ -51,7 +52,7 @@ export default function InputFileUpload(props: InputFileUploadProps) {
             marginRight: props.marginRight
           }}
         >
-          Choose File
+          {props.textButton}
           <VisuallyHiddenInput type='file' />
         </Button>
       </Stack>

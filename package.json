@@ -4,7 +4,7 @@
   "author": "Firman Andrian",
   "private": true,
   "scripts": {
-    "dev:development": "NODE_ENV=development next dev -p 5002",
+    "dev:development": "NODE_ENV=development next dev -p 5001",
     "dev:staging": "NODE_ENV=staging next dev -p 5001",
     "build:dev": "NODE_ENV=development next build",
     "build:staging": "NODE_ENV=staging next build",
@@ -55,6 +55,7 @@
     "dotenv": "^16.0.3",
     "draft-js": "0.11.7",
     "firebase": "9.13.0",
+    "flatpickr": "^4.6.13",
     "i18next": "22.0.4",
     "i18next-browser-languagedetector": "7.0.0",
     "i18next-http-backend": "2.0.0",

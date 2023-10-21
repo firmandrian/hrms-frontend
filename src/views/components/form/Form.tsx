@@ -14,6 +14,8 @@ interface FormProps {
   showParagrafRight?: boolean
   showSpan?: boolean
   showForm?: boolean
+  value?: string
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export default function Form(props: FormProps) {
@@ -32,7 +34,8 @@ export default function Form(props: FormProps) {
             variant='outlined'
             placeholder={props.placeholder}
             size='small'
-            // sx={{ width: '30%', marginLeft: '10px' }}
+            value={props.value}
+            onChange={props.onChange}
             style={{
               marginLeft: props.marginLeft,
               width: props.width,

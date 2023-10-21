@@ -8,8 +8,8 @@ import BordersBox from './BordersBox'
 import FormDatePicker from '../form/pickers/FormDatePicker'
 
 interface BordersProps {
-  columns: string[]
-  data: any[]
+  columns?: string[]
+  data?: any[]
   showDatePicker?: boolean
   showBordersBox?: boolean
   statusText: string

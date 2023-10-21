@@ -55,6 +55,8 @@ export default function CutOff() {
 
     // Mengubah properti disabled dalam data sesuai dengan isEditing
     const updatedData = data.map(item => {
+      console.log(item)
+
       return {
         ...item,
         'Attendance Cut-off': <PickersBasic ShowFromDate={true} width='200px' disabled={false} />,
